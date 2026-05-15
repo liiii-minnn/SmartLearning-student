@@ -50,7 +50,7 @@ function handleSearch() {
 
         <nav class="nav-section">
           <ElDropdown trigger="hover" class="nav-dropdown">
-            <span class="nav-item">课程</span>
+            <span class="nav-item dropdown-trigger">课程</span>
             <template #dropdown>
               <ElDropdownMenu>
                 <ElDropdownItem v-for="item in navItems" :key="item.name" @click="router.push(item.path)">
@@ -162,6 +162,7 @@ function handleSearch() {
 .nav-section {
   display: flex;
   gap: 32px;
+  align-items: center;
 }
 
 .nav-item {
@@ -177,6 +178,39 @@ function handleSearch() {
 
 .nav-dropdown {
   cursor: pointer;
+  font-size: 15px;
+  color: #333;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.nav-dropdown:hover {
+  color: #667eea;
+}
+
+.nav-dropdown button,
+.nav-dropdown .el-dropdown-link {
+  display: inline !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: none !important;
+  font-size: 15px !important;
+  color: inherit !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.nav-dropdown button:hover,
+.nav-dropdown .el-dropdown-link:hover {
+  background: none !important;
+  color: #667eea !important;
+}
+
+.dropdown-trigger {
+  border: none !important;
+  outline: none !important;
 }
 
 .search-section {

@@ -19,11 +19,11 @@ const searchQuery = ref('')
 
 const menuItems = [
   { path: '/student/dashboard', label: '课程中心', icon: '📚' },
-  { path: '/student/course/1', label: '学习任务', icon: '✅' },
-  { path: '/student/course/1', label: '问答讨论', icon: '💬' },
-  { path: '/student/course/1', label: '作业考试', icon: '📝' },
-  { path: '/student/course/1', label: '小组教学', icon: '👥' },
-  { path: '/student/course/1', label: '课堂学习', icon: '🎓' }
+  { path: '/student/tasks', label: '学习任务', icon: '✅' },
+  { path: '/student/discussions', label: '问答讨论', icon: '💬' },
+  { path: '/student/exams', label: '作业考试', icon: '📝' },
+  { path: '/student/groups', label: '小组教学', icon: '👥' },
+  { path: '/student/classroom', label: '课堂学习', icon: '🎓' }
 ]
 
 const currentPath = computed(() => route.path)
@@ -31,6 +31,21 @@ const currentPath = computed(() => route.path)
 function isActive(path: string): boolean {
   if (path === '/student/dashboard') {
     return currentPath.value === '/student/dashboard'
+  }
+  if (path === '/student/tasks') {
+    return currentPath.value.startsWith('/student/tasks') || currentPath.value.startsWith('/student/task/')
+  }
+  if (path === '/student/discussions') {
+    return currentPath.value.startsWith('/student/discussions') || currentPath.value.startsWith('/student/discussion/')
+  }
+  if (path === '/student/exams') {
+    return currentPath.value.startsWith('/student/exams') || currentPath.value.startsWith('/student/exam/')
+  }
+  if (path === '/student/groups') {
+    return currentPath.value.startsWith('/student/groups')
+  }
+  if (path === '/student/classroom') {
+    return currentPath.value.startsWith('/student/classroom')
   }
   return currentPath.value.startsWith('/student/course')
 }
@@ -134,6 +149,9 @@ function toggleDrawer() {
               @keyup.enter="handleSearch"
               class="search-input"
             />
+            <ElButton type="primary" @click="handleSearch" class="search-btn">
+              搜索
+            </ElButton>
           </div>
         </div>
 
@@ -333,11 +351,18 @@ function toggleDrawer() {
 
 .search-box {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
+  display: flex;
+  gap: 8px;
 }
 
 .search-input {
-  width: 100%;
+  flex: 1;
+}
+
+.search-btn {
+  white-space: nowrap;
+  min-width: 80px;
 }
 
 .top-right {

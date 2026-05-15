@@ -36,6 +36,31 @@ const router = createRouter({
           component: () => import('../views/student/Dashboard.vue')
         },
         {
+          path: 'tasks',
+          name: 'StudentTasks',
+          component: () => import('../views/student/Tasks.vue')
+        },
+        {
+          path: 'discussions',
+          name: 'StudentDiscussions',
+          component: () => import('../views/student/Discussions.vue')
+        },
+        {
+          path: 'exams',
+          name: 'StudentExams',
+          component: () => import('../views/student/Exams.vue')
+        },
+        {
+          path: 'groups',
+          name: 'StudentGroups',
+          component: () => import('../views/student/Groups.vue')
+        },
+        {
+          path: 'classroom',
+          name: 'StudentClassroom',
+          component: () => import('../views/student/Classroom.vue')
+        },
+        {
           path: 'course/:courseId',
           name: 'StudentCourseDetail',
           component: () => import('../views/student/CourseDetail.vue')

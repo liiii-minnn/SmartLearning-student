@@ -281,7 +281,8 @@ function goBack() {
 .tip {
   font-size: 12px;
   color: #999;
-  margin-top: -8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .btn-group {
